@@ -1,0 +1,2 @@
+rootProject.name = "Exis Chessclock"
+include ':app'

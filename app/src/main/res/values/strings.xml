@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Exis Chessclock</string>
+    <string name="duration">Duration</string>
+    <string name="player1">Player White</string>
+    <string name="player2">Player Black</string>
+    <string name="time_button_text">00
+        00</string>
+
+    <string-array name="durations">
+        <item>Choose Game</item>
+        <item>Rapid: 10 min</item>
+        <item>Blitz: 5 min</item>
+        <item>Blitz: 3 min</item>
+        <item>Bullet: 1 min</item>
+    </string-array>
+
+</resources>
