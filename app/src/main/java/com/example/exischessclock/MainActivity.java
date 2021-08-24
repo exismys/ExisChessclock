@@ -45,16 +45,6 @@ public class MainActivity extends AppCompatActivity {
             // Setting up time buttons
             seconds1 = seconds2 = 60 * Integer.parseInt(selectedItem.replaceAll("[^0-9]", ""));
             String time = String.format(Locale.getDefault(), "%02d\n%02d", seconds1/60, 0);
-            /*String name1 = String.valueOf(((EditText) findViewById(R.id.white_name)).getText());
-            String name2 = String.valueOf(((EditText) findViewById(R.id.black_name)).getText());
-            String text1 = name1 + "\n" + time;
-            String text2 = name2 + "\n" + time;
-            // Formatting strings using SpannableString
-            SpannableString string1 = new SpannableString(text1);
-            string1.setSpan(new RelativeSizeSpan(0.2f), 0, text1.length() - 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            SpannableString string2 = new SpannableString(text2);
-            string2.setSpan(new RelativeSizeSpan(0.2f), 0, text2.length() - 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-             */
             ((Button) findViewById(R.id.time_button1)).setText(time);
             ((Button) findViewById(R.id.time_button2)).setText(time);
         }
