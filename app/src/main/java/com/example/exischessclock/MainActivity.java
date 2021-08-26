@@ -15,12 +15,20 @@ public class MainActivity extends AppCompatActivity {
     private int seconds1 = 0;
     private int seconds2 = 0;
     private boolean running1, running2;
-    private boolean wasHandlerRunning, wasClockRunning;
+    private boolean wasHandlerRunning, wasClockRunning1, wasClock1Running2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState != null) {
+            seconds1 = savedInstanceState.getInt("seconds1");
+            seconds2 = savedInstanceState.getInt("seconds2");
+            running1 = savedInstanceState.getBoolean("running1");
+            running2 = savedInstanceState.getBoolean("running2");
+            wasHandlerRunning = true;
+            runTimer();
+        }
     }
 
     public void onClickTime1(View view) {
@@ -92,5 +100,14 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(this, 1000);
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("seconds1", seconds1);
+        savedInstanceState.putInt("seconds2", seconds2);
+        savedInstanceState.putBoolean("running1", running1);
+        savedInstanceState.putBoolean("wasClockRunning2", running2);
     }
 }
