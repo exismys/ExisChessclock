@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private int seconds1 = 0;
     private int seconds2 = 0;
     private boolean running1, running2;
-    private boolean wasHandlerRunning, wasClockRunning1, wasClock1Running2;
+    private boolean wasHandlerRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +108,6 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putInt("seconds1", seconds1);
         savedInstanceState.putInt("seconds2", seconds2);
         savedInstanceState.putBoolean("running1", running1);
-        savedInstanceState.putBoolean("wasClockRunning2", running2);
+        savedInstanceState.putBoolean("running2", running2);
     }
 }
