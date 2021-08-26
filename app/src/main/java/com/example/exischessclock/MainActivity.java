@@ -34,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickStart(View view) {
-        String selectedItem = String.valueOf(((Spinner) findViewById(R.id.duration)).getSelectedItem());
+        Spinner spinner = (Spinner) findViewById(R.id.duration);
+        String selectedItem = String.valueOf(spinner.getSelectedItem());
         String[] gameArray = getResources().getStringArray(R.array.durations);
         if (selectedItem.equals(gameArray[0])) {
             CharSequence text = "You haven't chosen a game type";
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             String time = String.format(Locale.getDefault(), "%02d\n%02d", seconds1/60, 0);
             ((Button) findViewById(R.id.time_button1)).setText(time);
             ((Button) findViewById(R.id.time_button2)).setText(time);
+            spinner.setSelection(0);
         }
         if (!wasHandlerRunning) {
             wasHandlerRunning = true;
