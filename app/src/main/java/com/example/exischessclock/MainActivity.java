@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private int seconds1 = 0;
     private int seconds2 = 0;
     private boolean running1, running2;
+    private boolean wasRunningOnce;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.time_button1)).setText(time);
             ((Button) findViewById(R.id.time_button2)).setText(time);
         }
-        runTimer();
+        if (!wasRunningOnce) {
+            wasRunningOnce = true;
+            runTimer();
+        }
     }
 
     public void onClickPause(View view) {
