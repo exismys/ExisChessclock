@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private int seconds1 = 0;
     private int seconds2 = 0;
     private boolean running1, running2;
-    private boolean wasRunningOnce;
+    private boolean wasHandlerRunning, wasClockRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
             ((Button) findViewById(R.id.time_button1)).setText(time);
             ((Button) findViewById(R.id.time_button2)).setText(time);
         }
-        if (!wasRunningOnce) {
-            wasRunningOnce = true;
+        if (!wasHandlerRunning) {
+            wasHandlerRunning = true;
             runTimer();
         }
     }
@@ -78,12 +78,14 @@ public class MainActivity extends AppCompatActivity {
                 timeButton1.setText(time1);
                 String time2 = String.format(Locale.getDefault(), "%02d\n%02d", minutes2, secs2);
                 timeButton2.setText(time2);
-
+                if (seconds1 == 0 || seconds2 == 0) {
+                    running1 = running2 = false;
+                }
                 if (running1) {
-                    seconds1++;
+                    seconds1--;
                 }
                 if (running2) {
-                    seconds2++;
+                    seconds2--;
                 }
                 handler.postDelayed(this, 1000);
             }
